@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: bhullarmania
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=300, must-revalidate
+      - path: /photos/*
+        name: Cache-Control
+        value: public, max-age=2592000, immutable
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
