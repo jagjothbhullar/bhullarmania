@@ -981,6 +981,19 @@ section { padding: 5rem 6vw; }
   vertical-align: middle;
   border: 1px dashed var(--cream);
 }
+.events .event-pill {
+  display: inline-block;
+  margin: 0.4rem 0 0;
+  font-family: 'Bungee', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--teal);
+  color: #0a0a0a;
+  padding: 0.22rem 0.55rem;
+  border-radius: 2px;
+  border: 1px solid rgba(10,10,10,0.35);
+}
 
 /* ============== FIELD GUIDE ============== */
 .guide {
