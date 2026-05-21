@@ -1,45 +1,23 @@
 // =============== ROSTER ===============
-// nickname + card are dummy placeholders — swap to real values when ready.
 const ROSTER = [
-  { name: "Anmol Thiara", size: "L",   nickname: "El Tigre Negro",   card: { rank: "K",  suit: "♠" } },
-  { name: "Anmol D",      size: "L",   nickname: "El Diablo Dorado", card: { rank: "Q",  suit: "♥" } },
-  { name: "Navkaran",     size: "XL",  nickname: "La Tormenta",      card: { rank: "A",  suit: "♣" } },
-  { name: "Supreet",      size: "L",   nickname: "El Rey del Ring",  card: { rank: "J",  suit: "♦" } },
-  { name: "Jimmy",        size: "XL",  nickname: "El Misterio",      card: { rank: "10", suit: "♠" } },
-  { name: "Ricky",        size: "XL",  nickname: "El Relámpago",     card: { rank: "9",  suit: "♥" } },
-  { name: "Bicky",        size: "M",   nickname: "El Niño Bonito",   card: { rank: "8",  suit: "♣" } },
-  { name: "Ajay",         size: "2XL", nickname: "El Coloso",        card: { rank: "7",  suit: "♦" } },
-  { name: "Sundeep",      size: "3XL", nickname: "El Toro Salvaje",  card: { rank: "K",  suit: "♥" } },
-  { name: "Sunny D",      size: "L",   nickname: "El Sol Dorado",    card: { rank: "Q",  suit: "♣" } },
-  { name: "Noor",         size: "XL",  nickname: "La Luz",           card: { rank: "A",  suit: "♦" } },
-  { name: "Anand",        size: "2XL", nickname: "El Gigante",       card: { rank: "J",  suit: "♠" } },
-  { name: "Varinder",     size: "L",   nickname: "El Cazador",       card: { rank: "10", suit: "♥" } },
-  { name: "Gurjot",       size: "L",   nickname: "El Espíritu",      card: { rank: "9",  suit: "♣" } },
-  { name: "Joth",         size: "XL",  nickname: "El Jefe",          card: { rank: "A",  suit: "♠" } },
-  { name: "Pritpal",      size: "XL",  nickname: "El Patrón",        card: { rank: "K",  suit: "♦" } },
-  { name: "Armaan",       size: "L",   nickname: "El Soñador",       card: { rank: "Q",  suit: "♠" } },
+  { name: "Anmol Thiara", size: "L",   nickname: "El Tigre Negro",   tagline: "The Groomsman",            card: "anmol-thiara.jpg" },
+  { name: "Anmol D",      size: "L",   nickname: "El Diablo Dorado", tagline: "Designated Driver",        card: "anmol-d.jpg" },
+  { name: "Navkaran",     size: "XL",  nickname: "La Tormenta",      tagline: "The Groomsman",            card: "navkaran.jpg" },
+  { name: "Supreet",      size: "L",   nickname: "El Rey del Ring",  tagline: "The Beast Friend",         card: "supreet.jpg" },
+  { name: "Jimmy",        size: "XL",  nickname: "El Misterio",      tagline: "The Groomsman",            card: "jimmy.jpg" },
+  { name: "Ricky",        size: "XL",  nickname: "El Relámpago",     tagline: "The Groomsman",            card: "ricky.jpg" },
+  { name: "Bicky",        size: "M",   nickname: "El Niño Bonito",   tagline: "The Groomsman",            card: "bicky.jpg" },
+  { name: "Ajay",         size: "2XL", nickname: "El Coloso",        tagline: "The Groomsman",            card: "ajay.jpg" },
+  { name: "Sundeep",      size: "3XL", nickname: "El Toro Salvaje",  tagline: "The Raiders' Fan",         card: "sundeep.jpg" },
+  { name: "Sunny D",      size: "L",   nickname: "El Sol Dorado",    tagline: "",                         card: "sunny-d.jpg" },
+  { name: "Noor",         size: "XL",  nickname: "La Luz",           tagline: "The Ultimate Vibe Master", card: "noor.jpg" },
+  { name: "Anand",        size: "2XL", nickname: "El Gigante",       tagline: "The Groomsman",            card: "anand.jpg" },
+  { name: "Varinder",     size: "L",   nickname: "El Cazador",       tagline: "The Groomsman",            card: "varinder.jpg" },
+  { name: "Gurjot",       size: "L",   nickname: "El Espíritu",      tagline: "The Groomsman",            card: "gurjot.jpg" },
+  { name: "Joth",         size: "XL",  nickname: "El Jefe",          tagline: "Groomsman",                card: "joth.png" },
+  { name: "Pritpal",      size: "XL",  nickname: "El Novio",         tagline: "The Groom",                card: "pritpal.png" },
+  { name: "Armaan",       size: "L",   nickname: "El Soñador",       tagline: "The Groomsman",            card: "armaan.jpg" },
 ];
-
-function isRedSuit(suit) { return suit === "♥" || suit === "♦"; }
-
-function playingCardSVG({ rank, suit }) {
-  const red = isRedSuit(suit);
-  const color = red ? "#c8102e" : "#0a0a0a";
-  return `
-  <svg class="play-card" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" aria-label="${rank} of ${suit}">
-    <rect x="4" y="4" width="192" height="272" rx="14" ry="14"
-          fill="#fffdf7" stroke="#0a0a0a" stroke-width="3" />
-    <rect x="10" y="10" width="180" height="260" rx="10" ry="10"
-          fill="none" stroke="${color}" stroke-width="1" opacity="0.35" />
-    <g fill="${color}" font-family="Georgia, 'Times New Roman', serif" font-weight="700">
-      <text x="22" y="40" font-size="32" text-anchor="middle">${rank}</text>
-      <text x="22" y="68" font-size="26" text-anchor="middle">${suit}</text>
-      <text x="178" y="252" font-size="32" text-anchor="middle" transform="rotate(180 178 244)">${rank}</text>
-      <text x="178" y="224" font-size="26" text-anchor="middle" transform="rotate(180 178 216)">${suit}</text>
-      <text x="100" y="170" font-size="120" text-anchor="middle">${suit}</text>
-    </g>
-  </svg>`;
-}
 
 const grid = document.getElementById("roster-grid");
 if (grid) {
@@ -51,6 +29,7 @@ if (grid) {
     el.dataset.idx = i;
     el.innerHTML = `
       <div class="wrestler-num">№ ${num}</div>
+      <div class="wrestler-photo"><img src="photos/cards/${w.card}" alt="${w.name} — ${w.nickname}" loading="lazy" /></div>
       <h3 class="wrestler-name">${w.name}</h3>
       <span class="wrestler-class">${w.size}</span>
       <span class="wrestler-status">✓ Booked · Tap →</span>
@@ -67,14 +46,13 @@ function openRosterModal(idx) {
   const w = ROSTER[idx];
   if (!w || !rmodalContent) return;
   const num = String(idx + 1).padStart(2, "0");
+  const altText = `${w.name} — "${w.nickname}"${w.tagline ? ` · ${w.tagline}` : ''}`;
   rmodalContent.innerHTML = `
-    <div class="rmodal-tag">№ ${num} · ${w.size}</div>
-    <h3 class="rmodal-name">${w.name}</h3>
-    <div class="rmodal-nick">"${w.nickname}"</div>
-    <div class="rmodal-card-wrap">
-      ${playingCardSVG(w.card)}
-    </div>
-    <p class="rmodal-foot">Photo & playing card to be replaced with the real drop.</p>
+    <div class="rmodal-tag">№ ${num} · Size ${w.size}</div>
+    <a class="rmodal-card-wrap" href="photos/cards/${w.card}" target="_blank" rel="noopener" aria-label="Open ${w.name}'s card full size">
+      <img class="rmodal-trading-card" src="photos/cards/${w.card}" alt="${altText}" />
+    </a>
+    <p class="rmodal-foot">Tap card for full size ↗</p>
   `;
   rmodal.classList.add("open");
   rmodal.setAttribute("aria-hidden", "false");
